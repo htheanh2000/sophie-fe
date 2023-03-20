@@ -1,14 +1,12 @@
 import Container from "@/components/container"
 import NAVLINKS from "@/constant/navlink"
-import ImgLogo from "image/logo.png"
-import Image from "next/image"
 import Link from "next/link"
 import Icon from "../icon"
-
+import Logo from "../logo"
 const Header = () => {
     return ( 
     <Container className="py-6 flex justify-between items-center">
-        <Image src={ImgLogo} alt="ImgLogo"/>
+        <Logo/>
         <nav>
             <ul className="max-desktop:hidden flex">
                 {NAVLINKS.map(link =>
