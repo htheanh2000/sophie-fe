@@ -1,22 +1,10 @@
 import type { ReactNode } from 'react';
 
-const STYLES = {
-  primary: {
-    bg: 'bg-yellow',
-    'text-color': 'text-purple',
-  },
-  secondary: {
-    bg: 'bg-white',
-    'text-color': 'text-black',
-  },
-  white: {
-    bg: 'bg-white',
-    'text-color': 'text-black',
-  },
-  disable: {
-    bg: 'bg-[#808080]',
-    'text-color': 'text-gray',
-  },
+const STYLES = { 
+  primary: 'bg-violet-600 text-white hover:bg-violet-500  ',
+  secondary: 'bg-violet-600 text-white hover:bg-white hover:text-violet-600',
+  white: 'bg-violet-600 text-white hover:bg-white hover:text-violet-600',
+  disable: 'bg-violet-600 text-white hover:bg-white hover:text-violet-600',
 };
 
 const SIZES = {
@@ -50,7 +38,7 @@ const Button = (props: TProps) => {
      type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`flex cursor-pointer w-fit items-center justify-center ${STYLES[style].bg} rounded ${SIZES[size]}  font-semibold ${STYLES[style]['text-color']} ${className}`}
+      className={`flex cursor-pointer w-fit items-center justify-center ${STYLES[style]}  rounded ${SIZES[size]} font-semibold ${className}`}
     >
       {children}
     </button>

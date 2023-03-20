@@ -4,7 +4,10 @@ const nextConfig = {
   images: {
     domains: ['supermomos-app-resources-us.s3.amazonaws.com'],
   },
-
+  i18n: {
+    locales: ['en', 'vi'],
+    defaultLocale: 'en',
+  },
   experimental: {
     appDir: true,
     fontLoaders: [
