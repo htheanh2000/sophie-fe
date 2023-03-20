@@ -1,9 +1,5 @@
-import {
-  forwardRef,
-  HTMLInputTypeAttribute,
-  useImperativeHandle,
-  useRef,
-} from "react";
+"use client";
+import { HTMLInputTypeAttribute } from "react";
 import Icon, { IconName } from "../icon";
 
 type Props = {
@@ -19,40 +15,26 @@ type Props = {
   icon?: IconName;
 };
 
-export interface InputRef extends HTMLInputElement {
-  getValue: () => string;
-}
-
-const Input = forwardRef((props: Props, ref) => {
-  const { className, onChange, defaultInput = false, label, id, icon } = props;
-  const inputRef = useRef<HTMLInputElement>(null);
-  useImperativeHandle(ref, () => ({
-    getValue: () => inputRef?.current?.value,
-  }));
+const Input = (props: Props) => {
+  const { onChange, label, id, icon } = props;
 
   return (
     <div>
+      {label && (
+        <div className="pb-3 ml-1 capitalize font-semibold">
+          <label htmlFor={id}>{label}</label>
+        </div>
+      )}
       <div className="flex items-center">
-        {icon && <Icon size="lg" name={icon}  />}
+        {icon && <Icon size="lg" name={icon} />}
         <input
           onChange={onChange}
           {...props}
-          className={
-            !defaultInput
-              ? `w-full px-4 cursor-pointer pl-1 ml-2 text-gray text-heading-6 rounded outline-0 ${className}`
-              : `w-auto cursor-pointer  ${className}`
-          }
+          className={`w-full px-4 py-2 cursor-pointer outline rounded-sm outline-1 outline-gray/20 focus:outline-primary`}
         />
       </div>
-      {label && (
-        <label className="mx-2 cursor-pointer" htmlFor={id}>
-          {label}
-        </label>
-      )}
     </div>
   );
-});
-
-Input.displayName = 'Input';
+};
 
 export default Input;

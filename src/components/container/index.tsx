@@ -5,7 +5,7 @@ interface IProps {
 
 const Container = ({children,className = ''}: IProps) => {
     return (
-        <div className={`container mx-auto ${className}`}>
+        <div className={`container mx-auto px-5 tablet:px-0 ${className}`}>
             {children}
         </div>
     )

@@ -23,7 +23,6 @@ export default function RootLayout({
     <html lang="en" className={inter.className}>
       <body>
         <Providers>
-          <Header></Header>
           {children}
         </Providers>
       </body>

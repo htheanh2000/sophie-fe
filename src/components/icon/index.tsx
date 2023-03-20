@@ -7,6 +7,9 @@ import close from "icon/close.svg";
 import people from "icon/people.svg";
 import cost from "icon/cost.svg";
 import tagClose from "icon/tag-close.svg";
+import menu from "icon/menu.svg";
+import facebook from "icon/facebook.svg";
+import google from "icon/google.svg";
 
 type Props = {
   color?: string; // default: black
@@ -26,7 +29,10 @@ export const icons = {
   close: close,
   'tag-close': tagClose,
   people: people,
-  cost: cost
+  cost: cost,
+  menu:menu,
+  facebook:facebook,
+  google: google,
 };
 
 const IconSize = {
@@ -41,7 +47,6 @@ const Icon = (props: Props) => {
   const { name, size = "sm", className, onClick } = props;
 
   return (
-    <div>
       <Image
         onClick={onClick}
         src={icons[name]}
@@ -50,7 +55,6 @@ const Icon = (props: Props) => {
         width={IconSize[size]}
         height={IconSize[size]}
       />
-    </div>
   );
 };
 
