@@ -57,7 +57,7 @@ const SideBar = () => {
       </section>
       <div>
         <Button style="secondary" className="w-full mb-4">Go to premium</Button>
-        <Image className="bg-violet-400" src={img_4} alt="img_4" />
+        <Image className="bg-violet-400 p-4" src={img_4} alt="img_4" />
       </div>
     </div>
   );
