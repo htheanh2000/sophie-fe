@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useFilters, useTable } from "react-table";
+import { useFilters, useSortBy, useTable } from "react-table";
 import Input from "../input";
-
+import Pagination from "../pagination";
 export default function Table({ columns, data }: any) {
   // Use the useTable Hook to send the columns and data to build the table
   const {
@@ -10,34 +10,34 @@ export default function Table({ columns, data }: any) {
     headerGroups,
     rows,
     prepareRow,
-    setFilter, // The useFilter Hook provides a way to set the filter
+    // setFilter, 
   } = useTable(
     {
       columns,
       data,
     },
-    useFilters // Adding the useFilters Hook to the table
-    // You can add as many Hooks as you want. Check the documentation for details. You can even add custom Hooks for react-table here
+    useFilters,
+    useSortBy 
   );
   const [filterInput, setFilterInput] = useState("");
-
-  // Update the state when input changes
+  const [currentPage, setCurrentPage] = useState(1)
   const handleFilterChange = (e: any) => {
     const value = e.target.value || undefined;
-    setFilter("show.name", value); // Update the show.name filter. Now our table will filter and show only the rows which have a matching value
+    // setFilter("show.name", value); 
     setFilterInput(value);
   };
-  /* 
-    Render the UI for your table
-    - react-table doesn't have UI, it's headless. We just need to put the react-table props from the Hooks, and it will do its magic automatically
-  */
+
+  const onchangePage = (page: number) => {
+    setCurrentPage(page)
+  };
+  
   return (
     <div>
-      <div className="my-8">
+      <div className="my-4">
         <Input
           value={filterInput}
           onChange={handleFilterChange}
-          placeholder={"Search name"}
+          placeholder={"Search..."}
         />
       </div>
       <table className="w-full border-collapse">
@@ -45,12 +45,12 @@ export default function Table({ columns, data }: any) {
           {headerGroups.map((headerGroup) => (
             <tr
               {...headerGroup.getHeaderGroupProps()}
-              className="bg-gray-100 border-b-2 border-gray-300"
+              className="border-b-[1px] border-gray/20"
             >
               {headerGroup.headers.map((column) => (
                 <th
                   {...column.getHeaderProps()}
-                  className="p-3 font-bold uppercase text-xs text-left text-gray-600"
+                  className="p-3  uppercase text-xs text-left text-gray-600 "
                 >
                   {column.render("Header")}
                 </th>
@@ -64,15 +64,13 @@ export default function Table({ columns, data }: any) {
             return (
               <tr
                 {...row.getRowProps()}
-                className={`${
-                  i % 2 === 0 ? "bg-white" : "bg-gray-100"
-                } border-b border-gray-300`}
+                className={`hover:bg-gray/10 cursor-pointer`}
               >
                 {row.cells.map((cell) => {
                   return (
                     <td
                       {...cell.getCellProps()}
-                      className="p-3 text-sm font-semibold text-gray-700"
+                      className="p-3 text-sm  "
                     >
                       {cell.render("Cell")}
                     </td>
@@ -83,6 +81,15 @@ export default function Table({ columns, data }: any) {
           })}
         </tbody>
       </table>
+
+      <Pagination
+        className="w-fit mx-auto"
+        currentPage={currentPage}
+        totalCount={data.totalResults || 200}
+        pageSize={data.limit || 10}
+        onPageChange={onchangePage}
+        siblingCount={1}
+      />
     </div>
   );
 }

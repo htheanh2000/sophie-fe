@@ -63,11 +63,10 @@ const Dashboard = () => {
           ))}
         </div>
 
-        <div className="flex items-center mt-16">
+        <div className="flex items-center mt-8">
           <Icon className="mr-2" name="dashboard" />
           <h3>History</h3>
         </div>
-       
         <Table columns={columns} data={data} />
       </section>
     </div>

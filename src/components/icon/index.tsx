@@ -17,6 +17,8 @@ import dashboard from "icon/dashboard.svg";
 import arrowUp from "icon/arrow-up.svg";
 import arrowDown from "icon/arrow-down.svg";
 import share from "icon/share.svg";
+import arrowRightNoCirle from "icon/arrow-right-no-cirle.svg";
+import arrowLeftNoCirle from "icon/arrow-left-no-cirle.svg";
 
 type Props = {
   color?: keyof typeof IconColor; // default: black
@@ -46,7 +48,9 @@ export const icons = {
   dashboard: dashboard,
   'arrow-up': arrowUp,
   'arrow-down': arrowDown,
-  'share': share
+  'share': share,
+  'arrow-right-no-cirle': arrowRightNoCirle,
+  'arrow-left-no-cirle': arrowLeftNoCirle,
 };
 
 const IconSize = {
