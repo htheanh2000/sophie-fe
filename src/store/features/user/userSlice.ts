@@ -1,6 +1,6 @@
 import { createSlice, Reducer } from '@reduxjs/toolkit'
-import { IUser, signin, signup } from './user.api';
-
+import { IError, IUser, signin, signup } from './user.api';
+import type { PayloadAction } from '@reduxjs/toolkit'
 export interface IState {
   status: 'idle' | 'loading' | 'fulfilled' | 'rejected',
   data?:  IUser ,
@@ -12,6 +12,7 @@ const initialState:IState = {
   data: undefined ,
   error: ''
 }
+
 
 const userSlice = createSlice({
   name: 'user',
@@ -25,6 +26,9 @@ const userSlice = createSlice({
       state.status = 'idle'
       state.data = undefined
       state.error = ''
+    },
+    setUser: (state, action: PayloadAction<IUser>) => {
+      state.data = action.payload
     }
     // omit reducer cases
   },
@@ -40,6 +44,7 @@ const userSlice = createSlice({
         state.data = action.payload.user
         localStorage.setItem('access_token', JSON.stringify(action.payload.tokens.access))
         localStorage.setItem('refresh_token', JSON.stringify(action.payload.tokens.refresh))
+        localStorage.setItem('user', JSON.stringify(action.payload.user))
         state.status = 'fulfilled'
       })
       .addCase(signin.rejected, (state, action: any) => {
@@ -56,6 +61,7 @@ const userSlice = createSlice({
         state.data = action.payload.user
         localStorage.setItem('access_token', JSON.stringify(action.payload.tokens.access))
         localStorage.setItem('refresh_token', JSON.stringify(action.payload.tokens.refresh))
+        localStorage.setItem('user', JSON.stringify(action.payload.user))
         state.status = 'fulfilled'
       })
       .addCase(signup.rejected, (state, action: any) => {
@@ -65,7 +71,7 @@ const userSlice = createSlice({
   }
 })
 
-export const { logout, clearUserState } = userSlice.actions
+export const { logout, clearUserState, setUser } = userSlice.actions
 
 
 export default userSlice.reducer as Reducer<typeof initialState>

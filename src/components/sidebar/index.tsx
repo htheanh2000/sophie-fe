@@ -17,42 +17,40 @@ interface ILink {
 const NAV_LINKS: ILink[] = [
   {
     name: "Dashboard",
-    icon: "menu",
+    icon: "bar-chart-up-with-border",
     url: "/dashboard",
   },
   {
     name: "Projects",
-    icon: "menu",
+    icon: "calendar",
     url: "/dashboard/project",
   },
   {
     name: "Teams",
-    icon: "menu",
+    icon: "clock",
     url: "/dashboard/team",
   },
 ];
 
 const SideBar = () => {
   const pathname = usePathname();
-
   useEffect(() => {
     console.log(pathname);
   }, [pathname]);
-
   return (
-    <div className="w-64 px-4 py-2 flex flex-col justify-between h-screen border-r-[1px]  border-gray/40 ">
+    <div className="w-64 px-4 py-2 flex flex-col justify-between h-screen shadow-md">
       <section>
-        <Logo className="mb-4 w-32" />
+        <Logo className="mb-6  mx-auto " />
         {NAV_LINKS.map((link) => (
           <Link
             href={link.url}
             key={link.url}
             className={classNames(
               "hover:bg-violet-600 group  hover:text-white cursor-pointer my-2 px-4 font-medium py-3 rounded flex",
-              { "bg-violet-600 text-white": pathname === link.url }
+              { "bg-violet-600 text-white ": pathname === link.url }
             )}
           >
-            <Icon className="mr-4 group-hover:[hover-white]" name={link.icon} />
+            <Icon className={classNames("mr-4 group-hover:invert ",{'invert': pathname === link.url })} name={link.icon} />
             {link.name}
           </Link>
         ))}
