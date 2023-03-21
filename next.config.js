@@ -2,11 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['supermomos-app-resources-us.s3.amazonaws.com'],
-  },
-  i18n: {
-    locales: ['en', 'vi'],
-    defaultLocale: 'en',
+    // domains: ['supermomos-app-resources-us.s3.amazonaws.com'],
   },
   experimental: {
     appDir: true,

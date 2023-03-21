@@ -95,3 +95,13 @@ h6 {
     max-width: 1140px;
   }
 }
+
+@media (min-width: 1500px) {
+  .container {
+    max-width: 1440px;
+  }
+}
+
+.hover-white:hover {
+    filter: invert(99%) sepia(0%) saturate(2%) hue-rotate(130deg) brightness(106%) contrast(101%);
+}

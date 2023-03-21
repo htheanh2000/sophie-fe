@@ -7,6 +7,7 @@ interface Props {
   
   const Error = (props: Props) => {
     const {className, children} = props
+    if(!children) return null
     return (
          <div
           className={`${className} capitalize px-4 py-3 mt-3 outline outline-1 outline-red-200 

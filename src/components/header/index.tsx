@@ -10,7 +10,7 @@ const Header = () => {
     <Container className="h-20 flex justify-between items-center tablet:items-end">
       {device === "MOBILE" ? <Logo short className="w-10" /> : <Logo />}
       <nav className="hidden tablet:flex ">
-        <Link href={"/sign-up"}>
+        <Link href={"/sign-in"}>
           <Button className="mr-4" style="secondary">Sign in</Button>
         </Link>
         <Link href={"/sign-up"}>
