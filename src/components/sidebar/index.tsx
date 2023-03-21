@@ -38,7 +38,7 @@ const SideBar = () => {
     console.log(pathname);
   }, [pathname]);
   return (
-    <div className="w-64 px-4 py-2 flex flex-col justify-between h-screen shadow-md">
+    <div className="w-64 px-4 py-2 flex flex-col justify-between h-screen shadow-md fixed bg-white">
       <section>
         <Logo className="mb-6  mx-auto " />
         {NAV_LINKS.map((link) => (

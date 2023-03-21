@@ -27,7 +27,9 @@ export default function DashboardLayout({
     return (
         <div className="flex">
             <Sidebar/>
+            <div className="ml-64">
             {children}
+            </div>
         </div>
     )
   }
