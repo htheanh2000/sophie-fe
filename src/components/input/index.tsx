@@ -16,7 +16,7 @@ type Props = {
 };
 
 const Input = (props: Props) => {
-  const { onChange, label, id, icon } = props;
+  const { label, id, icon } = props;
 
   return (
     <div>
@@ -28,7 +28,6 @@ const Input = (props: Props) => {
       <div className="flex items-center">
         {icon && <Icon size="lg" name={icon} />}
         <input
-          onChange={onChange}
           {...props}
           className={`w-full px-4 py-2 cursor-pointer outline rounded-sm outline-1 outline-gray/20 focus:outline-primary`}
         />

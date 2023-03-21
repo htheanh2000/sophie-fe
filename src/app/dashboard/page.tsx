@@ -4,6 +4,7 @@ import DashboardHeader from "@/components/dashboard-header";
 import Icon from "@/components/icon";
 import MainTable from "@/components/table";
 import Table from "@/components/table";
+import Input from "@/components/input";
 
 const Dashboard = () => {
   const columns = useMemo(
@@ -35,6 +36,7 @@ const Dashboard = () => {
     ],
     []
   );
+ 
 
   // data state to store the TV Maze API data. Its initial value is an empty array
   const [data, setData] = useState([]);
@@ -65,6 +67,7 @@ const Dashboard = () => {
           <Icon className="mr-2" name="dashboard" />
           <h3>History</h3>
         </div>
+       
         <Table columns={columns} data={data} />
       </section>
     </div>
