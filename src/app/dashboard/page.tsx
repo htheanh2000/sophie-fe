@@ -46,7 +46,8 @@ const Dashboard = () => {
     (async () => {
       const result = await fetch("https://api.tvmaze.com/search/shows?q=snow");
       const data = await result.json();
-      setData(data);
+      // setData(data);
+      setData([])
     })();
   }, []);
   return (
