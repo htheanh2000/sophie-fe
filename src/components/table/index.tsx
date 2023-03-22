@@ -10,27 +10,27 @@ export default function Table({ columns, data }: any) {
     headerGroups,
     rows,
     prepareRow,
-    // setFilter, 
+    // setFilter,
   } = useTable(
     {
       columns,
       data,
     },
     useFilters,
-    useSortBy 
+    useSortBy
   );
   const [filterInput, setFilterInput] = useState("");
-  const [currentPage, setCurrentPage] = useState(1)
+  const [currentPage, setCurrentPage] = useState(1);
   const handleFilterChange = (e: any) => {
     const value = e.target.value || undefined;
-    // setFilter("show.name", value); 
+    // setFilter("show.name", value);
     setFilterInput(value);
   };
 
   const onchangePage = (page: number) => {
-    setCurrentPage(page)
+    setCurrentPage(page);
   };
-  
+
   return (
     <div>
       <div className="my-4">
@@ -42,14 +42,16 @@ export default function Table({ columns, data }: any) {
       </div>
       <table className="w-full border-collapse">
         <thead>
-          {headerGroups.map((headerGroup) => (
+          {headerGroups.map((headerGroup, index) => (
             <tr
               {...headerGroup.getHeaderGroupProps()}
+              key={index}
               className="border-b-[1px] border-gray/20"
             >
-              {headerGroup.headers.map((column) => (
+              {headerGroup.headers.map((column,index) => (
                 <th
                   {...column.getHeaderProps()}
+                  key={index}
                   className="p-3  uppercase text-xs text-left text-gray-600 "
                 >
                   {column.render("Header")}
@@ -64,14 +66,12 @@ export default function Table({ columns, data }: any) {
             return (
               <tr
                 {...row.getRowProps()}
+                key={i}
                 className={`hover:bg-gray/10 cursor-pointer`}
               >
-                {row.cells.map((cell) => {
+                {row.cells.map((cell, index) => {
                   return (
-                    <td
-                      {...cell.getCellProps()}
-                      className="p-3 text-sm  "
-                    >
+                    <td {...cell.getCellProps()} key={index} className="p-3 text-sm  ">
                       {cell.render("Cell")}
                     </td>
                   );

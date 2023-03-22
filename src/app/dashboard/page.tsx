@@ -59,7 +59,7 @@ const Dashboard = () => {
         </div>
         <div className="mt-4 flex">
           {datamock.map((item) => (
-            <Card {...item} />
+            <Card key={item.subject} {...item} />
           ))}
         </div>
 

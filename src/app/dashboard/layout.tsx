@@ -21,9 +21,9 @@ export default function DashboardLayout({
       if(!userString) return
       const user = JSON.parse(userString)
       dispatch(setUser(user))
-    },[])
+    },[dispatch])
     const DEVICE = useDevice()
-    if(DEVICE === "MOBILE") return <div className="w-screen h-screen flex items-center justify-center"><span className="text-center max-w-sm">This website don't support for mobile device, please change your device</span></div>
+    if(DEVICE === "MOBILE") return <div className="w-screen h-screen flex items-center justify-center"><span className="text-center max-w-sm">This website dont support for mobile device, please change your device</span></div>
     return (
         <div className="flex">
             <Sidebar/>

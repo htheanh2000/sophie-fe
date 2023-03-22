@@ -21,12 +21,12 @@ const SignUpPage = () => {
   const { data: user, status, error } = useAppSelector((state) => state.user);
   useEffect(() => {
     dispatch(clearUserState())
-  },[])
+  },[dispatch])
   useEffect(() => {
     if (user) {
       router.push("/dashboard");
     }
-  }, [user, status, useAppDispatch]);
+  }, [user, status, router]);
 
   const initialValues: ISignIn = {
     email: "",

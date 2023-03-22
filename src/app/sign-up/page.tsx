@@ -29,13 +29,13 @@ const SignUpPage = () => {
 
   useEffect(() => {
     dispatch(clearUserState())
-  },[])
+  },[dispatch])
 
   useEffect(() => {
     if (user) {
       router.push("/dashboard");
     }
-  }, [user, status, useAppDispatch]);
+  }, [user, status, router]);
 
   const initialValues = {
     name: "",
