@@ -16,10 +16,10 @@ type Props = {
 };
 
 const Input = (props: Props) => {
-  const { label, id, icon } = props;
+  const { label, id, icon , placeholder } = props;
 
   return (
-    <div>
+    <div className={placeholder}>
       {label && (
         <div className="pb-3 ml-1 capitalize font-semibold">
           <label htmlFor={id}>{label}</label>
