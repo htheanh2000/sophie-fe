@@ -7,7 +7,7 @@ const Project = () => {
   return (
     <div className="w-full">
       <DashboardHeader />
-      <section className="p-7">
+      <section className="p-7 w-full overflow-hidden">
         <div className="flex items-center">
           <Icon className="mr-2" name="dashboard" />
           <h3>Math</h3>
@@ -64,16 +64,16 @@ const datamock: ICard[] = [
     average: "9.0",
     increment: 3.46,
   },
-  {
-    subject: "physics",
-    average: "8.5",
-    increment: 4.46,
-  },
-  {
-    subject: "chemistry",
-    average: "8.0",
-    increment: -5.46,
-  },
+//   {
+//     subject: "physics",
+//     average: "8.5",
+//     increment: 4.46,
+//   },
+//   {
+//     subject: "chemistry",
+//     average: "8.0",
+//     increment: -5.46,
+//   },
 ];
 
 const THEMES = {

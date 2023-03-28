@@ -19,6 +19,7 @@ import arrowDown from "icon/arrow-down.svg";
 import share from "icon/share.svg";
 import arrowRightNoCirle from "icon/arrow-right-no-cirle.svg";
 import arrowLeftNoCirle from "icon/arrow-left-no-cirle.svg";
+import puzzle from "icon/puzzle.svg";
 
 type Props = {
   color?: keyof typeof IconColor; // default: black
@@ -51,6 +52,7 @@ export const icons = {
   'share': share,
   'arrow-right-no-cirle': arrowRightNoCirle,
   'arrow-left-no-cirle': arrowLeftNoCirle,
+  'puzzle': puzzle
 };
 
 const IconSize = {

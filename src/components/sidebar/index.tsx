@@ -26,17 +26,14 @@ const NAV_LINKS: ILink[] = [
     url: "/dashboard/project",
   },
   {
-    name: "Teams",
-    icon: "clock",
-    url: "/dashboard/team",
+    name: "Create Test",
+    icon: "puzzle",
+    url: "/dashboard/create-test",
   },
 ];
 
 const SideBar = () => {
   const pathname = usePathname();
-  useEffect(() => {
-    console.log(pathname);
-  }, [pathname]);
   return (
     <div className="w-64 px-4 py-2 flex flex-col justify-between h-screen shadow-md fixed bg-white">
       <section>
