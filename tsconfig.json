@@ -32,7 +32,10 @@
       ],
       "icon/*": [
         "./public/icons/*"
-      ]
+      ],
+      "lottie/*": [
+        "./public/lottie/*"
+      ],
     }
   },
   "include": [
